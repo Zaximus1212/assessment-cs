@@ -1,0 +1,35 @@
+Step 1) 
+    2. insert takes way longer than append 
+    3. extra large 
+        insert 942.82545 ms
+        append 4.051456 ms
+       large
+        insert 6.911908 ms
+        append 771.243 μs
+       medium
+        insert 190.155 μs
+        append 182.236 μs
+       small
+        insert 52.244 μs
+        append 102.892 μs
+       tiny
+        insert 40.885 μs
+        append 92.021 μs
+    
+    4. When comparing the .unshift() method with the .push() method there were a few clear findings. For one the 
+    .push() method has a huge advantage the more items are in the array starting around 1000 items, after that mark 
+    its very clear that push is the method to use. this is evidently caused by the fact that the values dont have 
+    to be moved each time you add a value. Unshift on the other hand does a lot worse the bigger it gets and a lot 
+    better the smaller the array is. After doing some research it was very hard to find a solution to why unshift is 
+    ever better, so I thought about it and I strongly believe that unshift performs better with smaller arrays because 
+    of the source code for each. My assumption is that the push method loops through to find what index it will be 
+    adding to, and unshift does not have to loop through to find the index since it simply adds it to the beginning. 
+    So hypothetically speaking the push method takes longer but gets executed less times, whereas the unshift method 
+    is faster but gets executed more times, each based on the number of values in the array. Which would again 
+    hypothetically speaking, explain why unshift does better with smaller amounts of indexes while push does way better 
+    as you approach infinity or bigger numbers
+    
+    5. The push just adds to the end of the array whereas the unshift method has to move all the values and/or copy 
+    them into a new array with the unshifted value at the beginning. also push can get slowed down by needing to 
+    increase the memory allocated to the array in memory. unshift also has this problem but I believe unshift is 
+    always reallocating memory to a contiguous location.
